@@ -1,5 +1,5 @@
 function App() {
-  return <p>working</p>;
+  return <p className="bg-sky-500">Working</p>;
 }
 
 export default App;
