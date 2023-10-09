@@ -2,14 +2,15 @@ import React from "react";
 // import Grid from "@mui/material/Grid";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 function Header() {
   return (
     <Box display="flex" alignItems="center" justifyContent="space-between">
-      <h1 className="text-3xl font-bold underline">dev-explorer</h1>
+      <Typography variant="h4">dev-explorer</Typography>
       <div>
         <Box display="flex" alignItems="center">
-          <p>LIGHT</p>
+          <Typography marginRight="5px">LIGHT</Typography>
           <LightModeIcon />
         </Box>
       </div>
