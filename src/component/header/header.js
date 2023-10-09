@@ -6,14 +6,18 @@ import Typography from "@mui/material/Typography";
 
 function Header() {
   return (
-    <Box display="flex" alignItems="center" justifyContent="space-between">
+    <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="space-between"
+      color="white"
+    >
       <Typography variant="h4">dev-explorer</Typography>
-      <div>
-        <Box display="flex" alignItems="center">
-          <Typography marginRight="5px">LIGHT</Typography>
-          <LightModeIcon />
-        </Box>
-      </div>
+
+      <Box display="flex" alignItems="center">
+        <Typography marginRight="5px">LIGHT</Typography>
+        <LightModeIcon />
+      </Box>
     </Box>
   );
 }
