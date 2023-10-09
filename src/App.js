@@ -1,13 +1,13 @@
 import React from "react";
-import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Header from "./component/header/header";
+import SearchArea from "./component/searchBar/SearchBar";
 
 function App() {
   return (
     <>
       <Container
-        // maxWidth="lg"
+        maxWidth="md"
         sx={{
           height: "100vh",
           display: "flex",
@@ -18,6 +18,7 @@ function App() {
       >
         <Container sx={{ height: "70vh" }}>
           <Header />
+          <SearchArea />
         </Container>
 
         {/* <Box sx={{ bgcolor: "#cfe8fc", height: "100vh" }} /> */}
