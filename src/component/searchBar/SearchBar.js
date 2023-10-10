@@ -1,6 +1,5 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
-import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 
@@ -15,11 +14,7 @@ function SearchArea() {
         mt: 4,
       }}
     >
-      <TextField
-        sx={{ color: "white", width: "80%" }}
-        placeholder="Search"
-        startIcon={<SearchIcon />}
-      />
+      <TextField placeholder="Search" sx={{ color: "white", width: "80%" }} />
 
       <Button variant="contained" item sx={{ width: "20%", py: 2 }}>
         Search

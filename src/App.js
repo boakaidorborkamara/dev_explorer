@@ -2,6 +2,7 @@ import React from "react";
 import Container from "@mui/material/Container";
 import Header from "./component/header/header";
 import SearchArea from "./component/searchBar/SearchBar";
+import DetailsSection from "./component/detailsSection/DetailsSection";
 
 function App() {
   return (
@@ -19,9 +20,8 @@ function App() {
         <Container sx={{ height: "70vh" }}>
           <Header />
           <SearchArea />
+          <DetailsSection />
         </Container>
-
-        {/* <Box sx={{ bgcolor: "#cfe8fc", height: "100vh" }} /> */}
       </Container>
     </>
   );
