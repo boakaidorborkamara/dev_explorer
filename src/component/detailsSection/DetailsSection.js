@@ -1,6 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import UserProfileDetails from "../userProfileDetails/UserProfileDetails";
+import ContactSection from "../contactSection/ContactSection";
 import AccountStats from "../accountStats/AccountStats";
 
 function DetailsSection() {
@@ -17,6 +18,7 @@ function DetailsSection() {
     >
       <UserProfileDetails />
       <AccountStats />
+      <ContactSection />
     </Box>
   );
 }
