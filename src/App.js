@@ -10,14 +10,14 @@ function App() {
       <Container
         maxWidth="md"
         sx={{
-          height: "100vh",
+          height: "95vh",
           display: "flex",
           justifyContent: "center",
           alignContent: "center",
           alignItems: "center",
         }}
       >
-        <Container sx={{ height: "70vh" }}>
+        <Container sx={{ height: "60vh" }}>
           <Header />
           <SearchArea />
           <DetailsSection />
