@@ -9,7 +9,7 @@ function DetailsSection() {
     <Box
       sx={{
         width: 1,
-        height: "70%",
+        height: "75%",
         bgcolor: "#1F2A48",
         mt: 4,
         p: 1,
