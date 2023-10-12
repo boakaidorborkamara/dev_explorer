@@ -12,6 +12,7 @@ function SearchArea() {
         width: "100%",
         padding: 1,
         mt: 4,
+        borderRadius: 5,
       }}
     >
       <TextField placeholder="Search" sx={{ color: "white", width: "80%" }} />
