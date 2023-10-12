@@ -6,24 +6,26 @@ import Typography from "@mui/material/Typography";
 
 function UserProfileDetails() {
   return (
-    <Box sx={{ color: "white" }}>
+    <Box sx={{ color: "white", p: 5 }}>
       <Stack direction="row">
         <Avatar
           alt="Remy Sharp"
           src="https://avatars.githubusercontent.com/u/52508120?s=400&u=503f56be3040996cf843add7207f8fe83e245a19&v=4"
-          sx={{ width: "15%", height: "15%" }}
+          sx={{ width: "15%", height: "15%", mr: 4 }}
         />
-        <Stack direction="row">
-          <Box>
+        <Stack direction="row" sx={{ width: 1, alignContent: "space-between" }}>
+          <Box width="70%">
             <Typography variant="h3">The Octocat</Typography>
             <Typography>@octocat</Typography>
           </Box>
 
-          <Typography>Join 25 Jan 2011</Typography>
+          <Typography sx={{ mt: 2 }}>Join 25 Jan 2011</Typography>
         </Stack>
       </Stack>
       <Stack>
-        <Typography>This profile has no bio.</Typography>
+        <Typography sx={{ width: "80%", alignSelf: "end", mt: 1 }}>
+          This profile has no bio.
+        </Typography>
       </Stack>
     </Box>
   );
