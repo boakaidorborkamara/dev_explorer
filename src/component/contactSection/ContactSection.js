@@ -1,6 +1,7 @@
 import React from "react";
-import Box from "@mui/material/Box";
+// import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
+import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import PlaceIcon from "@mui/icons-material/Place";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -9,36 +10,67 @@ import HomeWorkIcon from "@mui/icons-material/HomeWork";
 
 function ContactSection() {
   return (
-    <Stack sx={{ pr: 10, mt: 4, color: "white" }}>
-      <Stack
-        direction="row"
-        useFlexGap
-        flexWrap="wrap"
-        sx={{ width: "75%", alignSelf: "end" }}
+    <Stack
+      sx={{
+        mt: 4,
+        color: "white",
+        justifyContent: "center",
+        alignItems: "center",
+        marginBottom: 5,
+      }}
+    >
+      <Grid
+        container
+        // spacing={2}
+        justifyContent="center"
+        alignItems="center"
+        width="90%"
       >
-        <Box
-          sx={{
-            display: "flex",
-            width: "40%",
-            p: 2,
-          }}
+        <Grid
+          item
+          xs={6}
+          display="flex"
+          flexDirection="row"
+          // bgcolor="red"
+          padding={2}
         >
-          <PlaceIcon sx={{ pr: 2 }} />
+          <PlaceIcon sx={{ pr: 1 }} />
           <Typography>San Francisco</Typography>
-        </Box>
-        <Box sx={{ display: "flex", width: "40%", p: 2 }}>
-          <TwitterIcon sx={{ pr: 2 }} />
+        </Grid>
+        <Grid
+          item
+          xs={6}
+          display="flex"
+          flexDirection="row"
+          // bgcolor="green"
+          padding={2}
+        >
+          <TwitterIcon sx={{ pr: 1 }} />
           <Typography>Not Available</Typography>
-        </Box>
-        <Box sx={{ display: "flex", width: "40%", p: 2 }}>
-          <LinkIcon sx={{ pr: 2 }} />
+        </Grid>
+        <Grid
+          item
+          xs={6}
+          display="flex"
+          flexDirection="row"
+          padding={2}
+          // bgcolor="yellow"
+        >
+          <LinkIcon sx={{ pr: 1 }} />
           <Typography>https://github.com</Typography>
-        </Box>
-        <Box sx={{ display: "flex", width: "40%", p: 2 }}>
-          <HomeWorkIcon sx={{ pr: 2 }} />
+        </Grid>
+        <Grid
+          item
+          xs={6}
+          display="flex"
+          flexDirection="row"
+          // bgcolor="red"
+          padding={2}
+        >
+          <HomeWorkIcon sx={{ pr: 1 }} />
           <Typography>Sogital Lab</Typography>
-        </Box>
-      </Stack>
+        </Grid>
+      </Grid>
     </Stack>
   );
 }

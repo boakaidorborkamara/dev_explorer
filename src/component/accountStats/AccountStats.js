@@ -5,11 +5,13 @@ import Typography from "@mui/material/Typography";
 
 function AccountStats() {
   return (
-    <Stack sx={{ pr: 10 }}>
+    // pr: 10,
+    <Stack>
       <Stack
         direction="row"
         sx={{
-          width: "68%",
+          // width: "68%",
+          width: { sm: "80%", md: "90%" },
           bgcolor: "#141c2f",
           px: 4,
           py: 2,

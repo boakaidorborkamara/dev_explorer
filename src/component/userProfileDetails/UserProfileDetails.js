@@ -11,9 +11,16 @@ function UserProfileDetails() {
         <Avatar
           alt="Remy Sharp"
           src="https://avatars.githubusercontent.com/u/52508120?s=400&u=503f56be3040996cf843add7207f8fe83e245a19&v=4"
-          sx={{ width: "15%", height: "15%", mr: 4 }}
+          sx={{
+            width: { xs: "30%", sm: "35%", md: "20%" },
+            height: "15%",
+            mr: 4,
+          }}
         />
-        <Stack direction="row" sx={{ width: 1, alignContent: "space-between" }}>
+        <Stack
+          direction={{ xs: "col", sm: "col", md: "col", lg: "row" }}
+          sx={{ width: 1, alignContent: "space-between" }}
+        >
           <Box width="70%">
             <Typography variant="h4" sx={{ fontWeight: "bold" }}>
               The Octocat
@@ -25,7 +32,13 @@ function UserProfileDetails() {
         </Stack>
       </Stack>
       <Stack>
-        <Typography sx={{ width: "80%", alignSelf: "end" }}>
+        <Typography
+          sx={{
+            width: { xs: "100%", sm: "100%" },
+            mt: { sx: 4, sm: 4, xs: 4 },
+            alignSelf: "end",
+          }}
+        >
           This profile has no bio.
         </Typography>
       </Stack>
