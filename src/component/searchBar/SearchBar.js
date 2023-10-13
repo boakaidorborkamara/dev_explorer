@@ -15,7 +15,10 @@ function SearchArea() {
         borderRadius: 5,
       }}
     >
-      <TextField placeholder="Search" sx={{ color: "white", width: "80%" }} />
+      <TextField
+        placeholder="Search GitHub username..."
+        sx={{ bgcolor: "white", width: "80%" }}
+      />
 
       <Button variant="contained" item sx={{ width: "20%", py: 2 }}>
         Search
