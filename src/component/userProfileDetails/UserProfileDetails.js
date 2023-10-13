@@ -15,15 +15,17 @@ function UserProfileDetails() {
         />
         <Stack direction="row" sx={{ width: 1, alignContent: "space-between" }}>
           <Box width="70%">
-            <Typography variant="h3">The Octocat</Typography>
+            <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+              The Octocat
+            </Typography>
             <Typography>@octocat</Typography>
           </Box>
 
-          <Typography sx={{ mt: 2 }}>Join 25 Jan 2011</Typography>
+          <Typography sx={{ mt: 1 }}>Join 25 Jan 2011</Typography>
         </Stack>
       </Stack>
       <Stack>
-        <Typography sx={{ width: "80%", alignSelf: "end", mt: 1 }}>
+        <Typography sx={{ width: "80%", alignSelf: "end" }}>
           This profile has no bio.
         </Typography>
       </Stack>

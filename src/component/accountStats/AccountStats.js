@@ -21,15 +21,21 @@ function AccountStats() {
       >
         <Box>
           <Typography>Repo</Typography>
-          <Typography variant="h4">8</Typography>
+          <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+            8
+          </Typography>
         </Box>
         <Box>
           <Typography>Followers</Typography>
-          <Typography variant="h4">6562</Typography>
+          <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+            6562
+          </Typography>
         </Box>
         <Box>
           <Typography>Followings</Typography>
-          <Typography variant="h4">0</Typography>
+          <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+            0
+          </Typography>
         </Box>
       </Stack>
     </Stack>

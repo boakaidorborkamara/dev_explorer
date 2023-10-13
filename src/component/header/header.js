@@ -12,7 +12,7 @@ function Header() {
       justifyContent="space-between"
       color="white"
     >
-      <Typography variant="h4">dev-explorer</Typography>
+      <Typography variant="h4">DevExplorer</Typography>
 
       <Box display="flex" alignItems="center">
         <Typography marginRight="5px">LIGHT</Typography>
