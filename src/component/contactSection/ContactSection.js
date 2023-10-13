@@ -15,8 +15,8 @@ function ContactSection() {
         mt: 4,
         color: "white",
         justifyContent: "center",
-        alignItems: "center",
-        marginBottom: 5,
+        alignItems: "end",
+        marginBottom: 2,
       }}
     >
       <Grid
@@ -24,7 +24,8 @@ function ContactSection() {
         // spacing={2}
         justifyContent="center"
         alignItems="center"
-        width="90%"
+        // width="90%"
+        sx={{ width: { lg: "76%" } }}
       >
         <Grid
           item

@@ -11,7 +11,7 @@ function AccountStats() {
         direction="row"
         sx={{
           // width: "68%",
-          width: { sm: "80%", md: "90%" },
+          width: { xs: "80%", sm: "80%", md: "90%", lg: "70%" },
           bgcolor: "#141c2f",
           px: 4,
           py: 2,
