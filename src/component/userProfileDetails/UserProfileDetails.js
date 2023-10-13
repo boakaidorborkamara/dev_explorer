@@ -18,7 +18,7 @@ function UserProfileDetails() {
             <Typography variant="h4" sx={{ fontWeight: "bold" }}>
               The Octocat
             </Typography>
-            <Typography>@octocat</Typography>
+            <Typography color="primary">@octocat</Typography>
           </Box>
 
           <Typography sx={{ mt: 1 }}>Join 25 Jan 2011</Typography>
