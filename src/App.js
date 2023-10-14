@@ -27,11 +27,11 @@ function App() {
 
   useEffect(() => {
     console.log("Working");
-    fetch("https://api.github.com/repos/octocat/Spoon-Knife", {
+    fetch("https://api.github.com/user", {
       method: "GET",
       headers: {
-        Accept: "application/vnd.github+json",
-        Authorization: "",
+        Accept: "application/json",
+        Authorization: process.env.REACT_APP_API_KEY,
       },
     })
       .then((response) => response.json())
