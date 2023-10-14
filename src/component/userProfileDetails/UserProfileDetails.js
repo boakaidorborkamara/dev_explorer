@@ -12,7 +12,7 @@ function UserProfileDetails() {
           alt="Remy Sharp"
           src="https://avatars.githubusercontent.com/u/52508120?s=400&u=503f56be3040996cf843add7207f8fe83e245a19&v=4"
           sx={{
-            width: { xs: "30%", sm: "35%", md: "20%", lg: "15%" },
+            width: { xs: "30%", sm: "20%", md: "20%", lg: "15%" },
             height: "15%",
             mr: 4,
           }}
