@@ -6,6 +6,7 @@ import Header from "./component/header/header";
 import SearchArea from "./component/searchBar/SearchBar";
 import DetailsSection from "./component/detailsSection/DetailsSection";
 
+console.log(process.env);
 // customize MUI default theme
 const theme = createTheme({
   typography: {
@@ -16,7 +17,7 @@ const theme = createTheme({
 function Reducer(state, action) {
   switch (action.type) {
     case "search": {
-      return state;
+      return { new_state: "WORKING" };
     }
   }
 }
@@ -27,11 +28,12 @@ function App() {
 
   useEffect(() => {
     console.log("Working");
-    fetch("https://api.github.com/user", {
+    fetch("https://api.github.com/octocat", {
       method: "GET",
       headers: {
-        Accept: "application/json",
+        Accept: "Accept: application/vnd.github+json",
         Authorization: process.env.REACT_APP_API_KEY,
+        // "X-GitHub-Api-Version": "2022-11-28",
       },
     })
       .then((response) => response.json())
@@ -47,6 +49,10 @@ function App() {
       });
   }, []);
 
+  const handleSearch = () => {
+    dispatch({ type: "search" });
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <Container
@@ -61,7 +67,7 @@ function App() {
       >
         <Container sx={{ height: "60vh" }}>
           <Header />
-          <SearchArea />
+          <SearchArea handleSearch={handleSearch} />
           <DetailsSection />
         </Container>
       </Container>

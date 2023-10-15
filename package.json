@@ -1,5 +1,6 @@
 {
   "name": "dev_explorer",
+  "proxy": "https://api.github.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
