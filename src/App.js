@@ -28,11 +28,12 @@ function App() {
 
   useEffect(() => {
     console.log("Working");
-    fetch("https://api.github.com/octocat", {
+    fetch("/users/devkapilbansal", {
       method: "GET",
       headers: {
         Accept: "Accept: application/vnd.github+json",
         Authorization: process.env.REACT_APP_API_KEY,
+        "Access-Control-Allow-Origin": "*",
         // "X-GitHub-Api-Version": "2022-11-28",
       },
     })
