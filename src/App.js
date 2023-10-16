@@ -27,9 +27,10 @@ function Reducer(state, action) {
 }
 
 function App() {
-  const [state, dispatch] = useReducer(Reducer, []);
+  let initialValue = [];
+  const [user, dispatch] = useReducer(Reducer, initialValue);
   const [isLoading, setIsLoading] = useState("false");
-  console.log("state", state);
+  console.log("state", user);
 
   useEffect(() => {
     console.log("Working");
@@ -74,7 +75,7 @@ function App() {
         <Container sx={{ height: "60vh" }}>
           <Header />
           <SearchArea handleSearch={handleSearch} />
-          <DetailsSection />
+          <DetailsSection user={user} />
         </Container>
       </Container>
     </ThemeProvider>
