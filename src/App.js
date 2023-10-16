@@ -1,5 +1,5 @@
 import React from "react";
-import { useReducer, useEffect } from "react";
+import { useReducer, useEffect, useState } from "react";
 import Container from "@mui/material/Container";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Header from "./component/header/header";
@@ -15,32 +15,37 @@ const theme = createTheme({
 });
 
 function Reducer(state, action) {
+  console.log("ACTION", action);
   switch (action.type) {
     case "search": {
       return { new_state: "WORKING" };
+    }
+    case "loading_default_user": {
+      return [...state, action.payload];
     }
   }
 }
 
 function App() {
   const [state, dispatch] = useReducer(Reducer, []);
+  const [isLoading, setIsLoading] = useState("false");
   console.log("state", state);
 
   useEffect(() => {
     console.log("Working");
-    fetch("/users/devkapilbansal", {
+    fetch("/users/octocat", {
       method: "GET",
       headers: {
         Accept: "Accept: application/vnd.github+json",
         Authorization: process.env.REACT_APP_API_KEY,
-        "Access-Control-Allow-Origin": "*",
-        // "X-GitHub-Api-Version": "2022-11-28",
+        "X-GitHub-Api-Version": "2022-11-28",
       },
     })
       .then((response) => response.json())
       .then((data) => {
         if (data) {
           console.log(data);
+          dispatch({ type: "loading_default_user", payload: data });
         }
       })
       .catch((err) => {
