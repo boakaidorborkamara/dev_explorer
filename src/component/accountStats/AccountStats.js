@@ -3,7 +3,8 @@ import Box from "@mui/material/Box";
 import React from "react";
 import Typography from "@mui/material/Typography";
 
-function AccountStats() {
+function AccountStats({ user }) {
+  console.log("stac", user);
   return (
     // pr: 10,
     <Stack>
@@ -24,19 +25,19 @@ function AccountStats() {
         <Box>
           <Typography>Repo</Typography>
           <Typography variant="h4" sx={{ fontWeight: "bold" }}>
-            8
+            {user[0].public_repos}
           </Typography>
         </Box>
         <Box>
           <Typography>Followers</Typography>
           <Typography variant="h4" sx={{ fontWeight: "bold" }}>
-            6562
+            {user[0].followers}
           </Typography>
         </Box>
         <Box>
           <Typography>Followings</Typography>
           <Typography variant="h4" sx={{ fontWeight: "bold" }}>
-            0
+            {user[0].following}
           </Typography>
         </Box>
       </Stack>
