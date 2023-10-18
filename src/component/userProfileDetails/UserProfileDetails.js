@@ -4,7 +4,10 @@ import Stack from "@mui/material/Stack";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 
-function UserProfileDetails() {
+function UserProfileDetails({ user }) {
+  if (user.length !== 0) {
+    console.log("profile", user[0].name);
+  }
   return (
     <Box sx={{ color: "white", p: 5 }}>
       <Stack direction="row">
@@ -23,7 +26,7 @@ function UserProfileDetails() {
         >
           <Box width="70%">
             <Typography variant="h4" sx={{ fontWeight: "bold" }}>
-              The Octocat
+              Octocat
             </Typography>
             <Typography color="primary">@octocat</Typography>
           </Box>

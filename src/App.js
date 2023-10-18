@@ -5,6 +5,8 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Header from "./component/header/header";
 import SearchArea from "./component/searchBar/SearchBar";
 import DetailsSection from "./component/detailsSection/DetailsSection";
+import Skeleton from "@mui/material/Skeleton";
+import Stack from "@mui/material/Stack";
 
 console.log(process.env);
 // customize MUI default theme
@@ -29,8 +31,9 @@ function Reducer(state, action) {
 function App() {
   let initialValue = [];
   const [user, dispatch] = useReducer(Reducer, initialValue);
-  const [isLoading, setIsLoading] = useState("false");
+  const [isLoading, setIsLoading] = useState(true);
   console.log("state", user);
+  console.log("isLOading", isLoading);
 
   useEffect(() => {
     console.log("Working");
@@ -47,6 +50,7 @@ function App() {
         if (data) {
           console.log(data);
           dispatch({ type: "loading_default_user", payload: data });
+          setIsLoading(false);
         }
       })
       .catch((err) => {
@@ -60,7 +64,61 @@ function App() {
     dispatch({ type: "search" });
   };
 
-  return (
+  const loadingScreen = (
+    <Container
+      maxWidth="md"
+      sx={{
+        height: "95vh",
+        display: "flex",
+        justifyContent: "center",
+        alignContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Container sx={{ height: "60vh" }}>
+        {/* <Box sx={{ display: "flex" }}>
+        <Typography sx={{ color: "white" }}>Loading</Typography>
+        <CircularProgress sx={{ color: "white" }} />
+      </Box> */}
+
+        <Skeleton animation="wave" />
+        <Skeleton animation="wave" />
+        <Skeleton animation="wave" />
+
+        <Stack spacing={1}>
+          {/* For variant="text", adjust the height via font-size */}
+          <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
+
+          {/* For other variants, adjust the size with `width` and `height` */}
+          <Skeleton variant="circular" width={40} height={40} />
+          <Skeleton variant="rectangular" width={210} height={60} />
+          <Skeleton variant="rounded" width={210} height={60} />
+        </Stack>
+
+        <Stack spacing={1}>
+          {/* For variant="text", adjust the height via font-size */}
+          <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
+
+          {/* For other variants, adjust the size with `width` and `height` */}
+          <Skeleton variant="circular" width={40} height={40} />
+          <Skeleton variant="rectangular" width={210} height={60} />
+          <Skeleton variant="rounded" width={210} height={60} />
+        </Stack>
+
+        <Stack spacing={1}>
+          {/* For variant="text", adjust the height via font-size */}
+          <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
+
+          {/* For other variants, adjust the size with `width` and `height` */}
+          <Skeleton variant="circular" width={40} height={40} />
+          <Skeleton variant="rectangular" width={210} height={60} />
+          <Skeleton variant="rounded" width={210} height={60} />
+        </Stack>
+      </Container>
+    </Container>
+  );
+
+  const mainContentScreen = (
     <ThemeProvider theme={theme}>
       <Container
         maxWidth="md"
@@ -80,6 +138,16 @@ function App() {
       </Container>
     </ThemeProvider>
   );
+
+  // conditional render ui
+  let content = "";
+  if (isLoading === true) {
+    content = loadingScreen;
+  } else if (isLoading === false) {
+    content = mainContentScreen;
+  }
+
+  return content;
 }
 
 export default App;

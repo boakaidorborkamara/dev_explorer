@@ -4,7 +4,8 @@ import UserProfileDetails from "../userProfileDetails/UserProfileDetails";
 import ContactSection from "../contactSection/ContactSection";
 import AccountStats from "../accountStats/AccountStats";
 
-function DetailsSection() {
+function DetailsSection({ user }) {
+  console.log("user", user);
   return (
     <Box
       sx={{
@@ -17,9 +18,9 @@ function DetailsSection() {
         borderRadius: 5,
       }}
     >
-      <UserProfileDetails />
-      <AccountStats />
-      <ContactSection />
+      <UserProfileDetails user={user} />
+      <AccountStats user={user} />
+      <ContactSection user={user} />
     </Box>
   );
 }
