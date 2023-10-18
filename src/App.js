@@ -37,7 +37,7 @@ function App() {
 
   useEffect(() => {
     console.log("Working");
-    fetch("/users/boakaidorborkamara", {
+    fetch("/users/octocat", {
       method: "GET",
       headers: {
         Accept: "Accept: application/vnd.github+json",

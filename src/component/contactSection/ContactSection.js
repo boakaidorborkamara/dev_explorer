@@ -8,7 +8,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkIcon from "@mui/icons-material/Link";
 import HomeWorkIcon from "@mui/icons-material/HomeWork";
 
-function ContactSection() {
+function ContactSection({ user }) {
   return (
     <Stack
       sx={{
@@ -36,7 +36,7 @@ function ContactSection() {
           padding={2}
         >
           <PlaceIcon sx={{ pr: 1 }} />
-          <Typography>San Francisco</Typography>
+          <Typography>{user[0].location}</Typography>
         </Grid>
         <Grid
           item
@@ -47,7 +47,7 @@ function ContactSection() {
           padding={2}
         >
           <TwitterIcon sx={{ pr: 1 }} />
-          <Typography>Not Available</Typography>
+          <Typography>{user[0].twitter_username}</Typography>
         </Grid>
         <Grid
           item
@@ -58,7 +58,7 @@ function ContactSection() {
           // bgcolor="yellow"
         >
           <LinkIcon sx={{ pr: 1 }} />
-          <Typography>https://github.com</Typography>
+          <Typography>{user[0].blog}</Typography>
         </Grid>
         <Grid
           item
@@ -69,7 +69,7 @@ function ContactSection() {
           padding={2}
         >
           <HomeWorkIcon sx={{ pr: 1 }} />
-          <Typography>Sogital Lab</Typography>
+          <Typography>{user[0].company}</Typography>
         </Grid>
       </Grid>
     </Stack>
