@@ -5,15 +5,13 @@ import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 
 function UserProfileDetails({ user }) {
-  if (user.length !== 0) {
-    console.log("profile", user[0].name);
-  }
+  console.log("profile", user[0].name);
   return (
     <Box sx={{ color: "white", p: 5 }}>
       <Stack direction="row">
         <Avatar
           alt="Remy Sharp"
-          src="https://avatars.githubusercontent.com/u/52508120?s=400&u=503f56be3040996cf843add7207f8fe83e245a19&v=4"
+          src={user[0].avatar_url}
           sx={{
             width: { xs: "30%", sm: "20%", md: "20%", lg: "15%" },
             height: "15%",
@@ -26,12 +24,12 @@ function UserProfileDetails({ user }) {
         >
           <Box width="70%">
             <Typography variant="h4" sx={{ fontWeight: "bold" }}>
-              Octocat
+              {user[0].name}
             </Typography>
-            <Typography color="primary">@octocat</Typography>
+            <Typography color="primary"> {user[0].login}</Typography>
           </Box>
 
-          <Typography sx={{ mt: 1 }}>Join 25 Jan 2011</Typography>
+          <Typography sx={{ mt: 1 }}>{user[0].created_at}</Typography>
         </Stack>
       </Stack>
       <Stack>
@@ -42,7 +40,7 @@ function UserProfileDetails({ user }) {
             alignSelf: "end",
           }}
         >
-          This profile has no bio.
+          {user[0].bio}
         </Typography>
       </Stack>
     </Box>
