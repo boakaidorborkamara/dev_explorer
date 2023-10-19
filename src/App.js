@@ -7,8 +7,8 @@ import SearchArea from "./component/searchBar/SearchBar";
 import DetailsSection from "./component/detailsSection/DetailsSection";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
+import getUserData from "./helper/getUserData";
 
-console.log(process.env);
 // customize MUI default theme
 const theme = createTheme({
   typography: {
@@ -17,13 +17,9 @@ const theme = createTheme({
 });
 
 function Reducer(state, action) {
-  console.log("ACTION", action);
   switch (action.type) {
     case "search": {
-      console.log("action", action);
-      console.log("payload", action.payload);
-      // return { new_state: "WORKING" };
-      return [...state, action.payload];
+      return [action.payload];
     }
     case "loading_default_user": {
       return [...state, action.payload];
@@ -36,36 +32,15 @@ function App() {
   const [user, dispatch] = useReducer(Reducer, initialValue);
   const [isLoading, setIsLoading] = useState(true);
   const [userName, setUsername] = useState("octocat");
+  const [userAction, setUserAction] = useState("loading_default_user");
 
   useEffect(() => {
-    fetch(`/users/${userName}`, {
-      method: "GET",
-      headers: {
-        Accept: "Accept: application/vnd.github+json",
-        Authorization: process.env.REACT_APP_API_KEY,
-        "X-GitHub-Api-Version": "2022-11-28",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data) {
-          console.log(data);
-          dispatch({ type: "loading_default_user", payload: data });
-          setIsLoading(false);
-        }
-      })
-      .catch((err) => {
-        if (err) {
-          console.log(err);
-        }
-      });
-  }, []);
+    getUserData(userName, setIsLoading, dispatch, userAction);
+  }, [userName]);
 
   const handleSearch = (username) => {
-    // dispatch({ type: "search" });
-    console.log("working", username);
     setUsername(username);
-    dispatch({ type: "search", payload: username });
+    setUserAction("search");
   };
 
   const loadingScreen = (
