@@ -20,7 +20,10 @@ function Reducer(state, action) {
   console.log("ACTION", action);
   switch (action.type) {
     case "search": {
-      return { new_state: "WORKING" };
+      console.log("action", action);
+      console.log("payload", action.payload);
+      // return { new_state: "WORKING" };
+      return [...state, action.payload];
     }
     case "loading_default_user": {
       return [...state, action.payload];
@@ -32,12 +35,10 @@ function App() {
   let initialValue = [];
   const [user, dispatch] = useReducer(Reducer, initialValue);
   const [isLoading, setIsLoading] = useState(true);
-  console.log("state", user);
-  console.log("isLOading", isLoading);
+  const [userName, setUsername] = useState("octocat");
 
   useEffect(() => {
-    console.log("Working");
-    fetch("/users/octocat", {
+    fetch(`/users/${userName}`, {
       method: "GET",
       headers: {
         Accept: "Accept: application/vnd.github+json",
@@ -60,8 +61,11 @@ function App() {
       });
   }, []);
 
-  const handleSearch = () => {
-    dispatch({ type: "search" });
+  const handleSearch = (username) => {
+    // dispatch({ type: "search" });
+    console.log("working", username);
+    setUsername(username);
+    dispatch({ type: "search", payload: username });
   };
 
   const loadingScreen = (

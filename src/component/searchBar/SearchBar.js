@@ -1,9 +1,11 @@
 import React from "react";
+import { useRef } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 
 function SearchArea({ handleSearch }) {
+  const searchInputRef = useRef("working");
   return (
     <Box
       sx={{
@@ -17,6 +19,7 @@ function SearchArea({ handleSearch }) {
     >
       <TextField
         placeholder="Search GitHub username..."
+        inputRef={searchInputRef}
         sx={{ bgcolor: "white", width: "80%" }}
       />
 
@@ -24,7 +27,11 @@ function SearchArea({ handleSearch }) {
         variant="contained"
         item
         sx={{ width: "20%", py: 2 }}
-        onClick={handleSearch}
+        onClick={() => {
+          console.log(searchInputRef.current.value);
+          handleSearch(searchInputRef.current.value);
+          searchInputRef.current.value = "";
+        }}
       >
         Search
       </Button>
