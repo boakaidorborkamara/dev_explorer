@@ -8,13 +8,10 @@ import DetailsSection from "./component/detailsSection/DetailsSection";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 import getUserData from "./helper/getUserData";
+import customizeDefaultTheme from "./helper/customizeDefaultTheme";
 
 // customize MUI default theme
-const theme = createTheme({
-  typography: {
-    fontFamily: ["Fira Code", "monospace"].join(","),
-  },
-});
+const theme = customizeDefaultTheme(createTheme);
 
 function Reducer(state, action) {
   switch (action.type) {
@@ -36,7 +33,7 @@ function App() {
 
   useEffect(() => {
     getUserData(userName, setIsLoading, dispatch, userAction);
-  }, [userName]);
+  }, [userName, userAction]);
 
   const handleSearch = (username) => {
     setUsername(username);
