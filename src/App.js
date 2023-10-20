@@ -9,6 +9,7 @@ import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 import getUserData from "./helper/getUserData";
 import customizeDefaultTheme from "./helper/customizeDefaultTheme";
+import ErrorAlert from "./component/errorAlert/errorAlert";
 
 // customize MUI default theme
 const theme = customizeDefaultTheme(createTheme);
@@ -30,12 +31,17 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [userName, setUsername] = useState("octocat");
   const [userAction, setUserAction] = useState("loading_default_user");
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     getUserData(userName, setIsLoading, dispatch, userAction);
   }, [userName, userAction]);
 
   const handleSearch = (username) => {
+    if(username === ""){
+      // alert("Enter a username");
+      return;
+    }
     setUsername(username);
     setUserAction("search");
   };
@@ -52,11 +58,7 @@ function App() {
       }}
     >
       <Container sx={{ height: "60vh" }}>
-        {/* <Box sx={{ display: "flex" }}>
-        <Typography sx={{ color: "white" }}>Loading</Typography>
-        <CircularProgress sx={{ color: "white" }} />
-      </Box> */}
-
+   
         <Skeleton animation="wave" />
         <Skeleton animation="wave" />
         <Skeleton animation="wave" />
@@ -109,6 +111,7 @@ function App() {
         <Container sx={{ height: "60vh" }}>
           <Header />
           <SearchArea handleSearch={handleSearch} />
+          <ErrorAlert />
           <DetailsSection user={user} />
         </Container>
       </Container>
@@ -119,9 +122,11 @@ function App() {
   let content = "";
   if (isLoading === true) {
     content = loadingScreen;
-  } else if (isLoading === false) {
+  }
+   else if (isLoading === false) {
     content = mainContentScreen;
   }
+ 
 
   return content;
 }
