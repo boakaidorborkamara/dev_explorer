@@ -40,7 +40,7 @@ function UserProfileDetails({ user }) {
             alignSelf: "end",
           }}
         >
-          {user[0].bio}
+          {!user[0].bio ? "This user doesn't have a bio.": user[0].bio }
         </Typography>
       </Stack>
     </Box>

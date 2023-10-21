@@ -13,7 +13,7 @@ const getUserData = (username, setIsLoading, dispatch, user_action,setIsError, i
         if(data.message){
           if(data.message === "Not Found"){
             let error_msg = data.message;
-            setErrorMessage(`User ${error_msg}`);
+            setErrorMessage(`User ${error_msg}, invalid username`);
             setIsError(true);
             console.log("is error", isError);
             return

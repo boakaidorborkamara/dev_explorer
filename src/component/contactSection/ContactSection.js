@@ -36,7 +36,7 @@ function ContactSection({ user }) {
           padding={2}
         >
           <PlaceIcon sx={{ pr: 1 }} />
-          <Typography>{user[0].location}</Typography>
+          <Typography>{!user[0].location?"Not Avaliable":user[0].location}</Typography>
         </Grid>
         <Grid
           item
@@ -47,7 +47,7 @@ function ContactSection({ user }) {
           padding={2}
         >
           <TwitterIcon sx={{ pr: 1 }} />
-          <Typography>{user[0].twitter_username}</Typography>
+          <Typography>{!user[0].twitter_username?"Not Avaliable":user[0].twitter_username}</Typography>
         </Grid>
         <Grid
           item
@@ -58,7 +58,7 @@ function ContactSection({ user }) {
           // bgcolor="yellow"
         >
           <LinkIcon sx={{ pr: 1 }} />
-          <Typography>{user[0].blog}</Typography>
+          <Typography>{!user[0].blog?"Not Avaliable":user[0].blog}</Typography>
         </Grid>
         <Grid
           item
@@ -69,7 +69,7 @@ function ContactSection({ user }) {
           padding={2}
         >
           <HomeWorkIcon sx={{ pr: 1 }} />
-          <Typography>{user[0].company}</Typography>
+          <Typography>{!user[0].company?"Not Avaliable":user[0].company}</Typography>
         </Grid>
       </Grid>
     </Stack>
