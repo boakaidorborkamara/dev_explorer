@@ -10,6 +10,12 @@ const getUserData = (username, setIsLoading, dispatch, user_action) => {
     .then((response) => response.json())
     .then((data) => {
       if (data) {
+        if(data.message){
+          if(data.message === "Not Found"){
+            console.log(data.message);
+            return
+          }
+        }
         console.log("DATA", data);
         dispatch({ type: `${user_action}`, payload: data });
         setIsLoading(false);
@@ -17,7 +23,7 @@ const getUserData = (username, setIsLoading, dispatch, user_action) => {
     })
     .catch((err) => {
       if (err) {
-        console.log(err);
+        console.log("ERROR", err);
       }
     });
 };

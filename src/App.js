@@ -31,7 +31,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [userName, setUsername] = useState("octocat");
   const [userAction, setUserAction] = useState("loading_default_user");
-  const [error, setError] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     getUserData(userName, setIsLoading, dispatch, userAction);
@@ -111,7 +111,7 @@ function App() {
         <Container sx={{ height: "60vh" }}>
           <Header />
           <SearchArea handleSearch={handleSearch} />
-          <ErrorAlert />
+          {isError===true?<ErrorAlert />:""}
           <DetailsSection user={user} />
         </Container>
       </Container>
@@ -119,16 +119,13 @@ function App() {
   );
 
   // conditional render ui
-  let content = "";
   if (isLoading === true) {
-    content = loadingScreen;
+    return loadingScreen;
   }
    else if (isLoading === false) {
-    content = mainContentScreen;
+    return mainContentScreen;
   }
  
-
-  return content;
 }
 
 export default App;
