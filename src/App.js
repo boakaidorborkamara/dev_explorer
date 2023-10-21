@@ -32,19 +32,31 @@ function App() {
   const [userName, setUsername] = useState("octocat");
   const [userAction, setUserAction] = useState("loading_default_user");
   const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("errrr");
 
   useEffect(() => {
-    getUserData(userName, setIsLoading, dispatch, userAction);
+    getUserData(userName, setIsLoading, dispatch, userAction,  setErrorMessage);
   }, [userName, userAction]);
 
   const handleSearch = (username) => {
     if(username === ""){
       // alert("Enter a username");
+      console.log("error message", errorMessage)
+      setIsError(true);
+      setErrorMessage("Input field is empty. Enter a github username")
       return;
     }
     setUsername(username);
     setUserAction("search");
   };
+
+  // display error message for four seconds 
+  if(isError === true){
+    setTimeout(()=>{
+      console.log("working")
+      setIsError(false);
+    }, 4000)
+  }
 
   const loadingScreen = (
     <Container
@@ -111,7 +123,7 @@ function App() {
         <Container sx={{ height: "60vh" }}>
           <Header />
           <SearchArea handleSearch={handleSearch} />
-          {isError===true?<ErrorAlert />:""}
+          {isError === true? <ErrorAlert errorMessage={errorMessage}/> : ""}
           <DetailsSection user={user} />
         </Container>
       </Container>
