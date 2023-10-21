@@ -24,9 +24,9 @@ function UserProfileDetails({ user }) {
         >
           <Box width="70%">
             <Typography variant="h4" sx={{ fontWeight: "bold" }}>
-              {user[0].name}
+              {!user[0].name?"No name":user[0].name}
             </Typography>
-            <Typography color="primary"> {user[0].login}</Typography>
+            <Typography color="primary"> {!user[0].login? "Username not avaliable": "@"+user[0].login} </Typography>
           </Box>
 
           <Typography sx={{ mt: 1 }}>{user[0].created_at}</Typography>
