@@ -1,4 +1,4 @@
-const getUserData = (username, setIsLoading, dispatch, user_action, setErrorMessage) => {
+const getUserData = (username, setIsLoading, dispatch, user_action,setIsError, isError, setErrorMessage) => {
   fetch(`/users/${username}`, {
     method: "GET",
     headers: {
@@ -13,10 +13,12 @@ const getUserData = (username, setIsLoading, dispatch, user_action, setErrorMess
         if(data.message){
           if(data.message === "Not Found"){
             let error_msg = data.message;
-            console.log("NF", error_msg);
-            setErrorMessage("error_msg");
+            setErrorMessage(`User ${error_msg}`);
+            setIsError(true);
+            console.log("is error", isError);
             return
           }
+          return
         }
         console.log("DATA", data);
         dispatch({ type: `${user_action}`, payload: data });

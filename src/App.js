@@ -35,7 +35,7 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("errrr");
 
   useEffect(() => {
-    getUserData(userName, setIsLoading, dispatch, userAction,  setErrorMessage);
+    getUserData(userName, setIsLoading, dispatch, userAction, setIsError, isError, setErrorMessage);
   }, [userName, userAction]);
 
   const handleSearch = (username) => {
